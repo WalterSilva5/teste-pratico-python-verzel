@@ -23,6 +23,9 @@ class ModuloViewSet(mixins.ListModelMixin,
     @action(detail=False, methods=['get'])
     def get(self, request):
         modulos = Modulo.objects.all()
+        for modulo in modulos:
+            aulas = Aula.objects.filter(modulo=modulo)
+            modulo.aulas = aulas
         serializer = ModuloSerializer(modulos, many=True)
         return Response(serializer.data)
 
@@ -31,6 +34,9 @@ class ModuloViewSet(mixins.ListModelMixin,
         serializer = ModuloSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
         
 
@@ -60,3 +66,8 @@ class ModuloViewSetDetail(mixins.RetrieveModelMixin,
         modulo = Modulo.objects.get(pk=pk)
         modulo.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def busca_aulas_modulo(modulo):
+    aulas = Aula.objects.filter(modulo=modulo)
+    return aulas

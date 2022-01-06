@@ -1,0 +1,9 @@
+.card_aula {
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: .3s;
+    &:hover {
+        border:1px solid green;
+        box-shadow: 0px 2px 5px black;
+    }
+}

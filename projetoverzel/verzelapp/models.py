@@ -3,10 +3,6 @@ from django.db import models
 # Create your models here.
 class Modulo(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False, unique=True)
-    #applabel
-    app_label = models.CharField(max_length=100, null=False, blank=False)
-    
-    
         
 class Aula(models.Model):
     nome = models.CharField(max_length=100, blank=False, null=False)

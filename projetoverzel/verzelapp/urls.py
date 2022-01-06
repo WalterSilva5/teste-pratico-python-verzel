@@ -13,9 +13,9 @@ urlpatterns = [
     path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'),
          name='swagger-ui'),
     #modulo
-    path('modulo/', views.ModuloViewSet.as_view(), name='modulo'),
-    path('modulo/<int:pk>/', views.ModuloViewSetDetail.as_view(), name='modulo-detail'),
+    path('api/modulo/', views.ModuloViewSet.as_view(), name='modulo'),
+    path('api/modulo/<int:pk>/', views.ModuloViewSetDetail.as_view(), name='modulo-detail'),
     #aula
-    path('aula/', views.AulaViewSet.as_view(), name='aula'),
-    path('aula/<int:pk>/', views.AulaViewSetDetail.as_view(), name='aula-detail'),
+    path('api/aula/', views.AulaViewSet.as_view(), name='aula'),
+    path('api/aula/<int:pk>/', views.AulaViewSetDetail.as_view(), name='aula-detail'),
 ]
