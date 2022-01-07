@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'animate.css';
 
 ReactDOM.render(
   <React.StrictMode>
