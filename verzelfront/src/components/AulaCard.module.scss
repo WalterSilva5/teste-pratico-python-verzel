@@ -2,8 +2,13 @@
     border: 1px solid black;
     border-radius: 10px;
     transition: .3s;
-    &:hover {
+    &:hover {  
         border:1px solid green;
         box-shadow: 0px 2px 5px black;
     }
+}
+
+.card_aula_ativo{  
+    border:1px solid green;
+    box-shadow: 0px 2px 5px black;
 }

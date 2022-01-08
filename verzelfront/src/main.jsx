@@ -4,6 +4,7 @@ import React from 'react';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'animate.css';
+import './styles.scss';
 
 ReactDOM.render(
   <React.StrictMode>

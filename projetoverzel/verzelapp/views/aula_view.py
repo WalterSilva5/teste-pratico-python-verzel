@@ -5,10 +5,8 @@ arquivo responsavel por definir as funções de aula
 '''
 
 
-from django.shortcuts import render
 from verzelapp.models import Aula, Modulo
 from verzelapp.serializers import ModuloSerializer, AulaSerializer
-from django.http.response import JsonResponse
 from rest_framework import (
     status, mixins, generics, serializers
 )

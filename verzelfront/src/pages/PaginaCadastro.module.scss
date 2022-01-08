@@ -1,0 +1,8 @@
+.btn_shadow{
+    box-shadow: 2px 2px 5px black;
+    border: 1px solid black;
+    border-radius: 5px;
+    &:hover{
+        box-shadow: 2px 2px 2px black;
+    }
+}

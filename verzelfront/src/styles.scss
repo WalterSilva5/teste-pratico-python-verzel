@@ -1,0 +1,16 @@
+* {
+    user-select: none;
+    transition: 0.2s;
+
+    &:hover {
+        transition: 0.2s;
+    }
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+}
