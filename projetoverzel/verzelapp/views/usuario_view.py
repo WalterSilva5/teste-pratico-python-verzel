@@ -11,6 +11,7 @@ from rest_framework import (
 )
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
 class UsuarioViewSet(
@@ -19,7 +20,7 @@ class UsuarioViewSet(
 ):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
-
+    permission_classes = [AllowAny]
     @action(detail=False, methods=['post'])
     def post(self, request):
         serializer = UsuarioSerializer(data=request.data)

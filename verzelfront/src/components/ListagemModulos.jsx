@@ -9,7 +9,7 @@ function ListagemModulos() {
   const [modulos, setModulos] = React.useState([]);
   const [moduloEscolhido, setModuloEscolhido] = React.useState(null);
   function buscarModulos() {
-    axios.get("http://localhost:8000/api/modulo/").then((response) => {
+    axios.get("/api/modulo/").then((response) => {
       setModulos(response.data);
     });
   }
@@ -24,7 +24,7 @@ function ListagemModulos() {
   return (
     <div>
       {/* pagina modulos */}
-      <div className="container-fluid m-5">
+      <div className="container-fluid m-md-5">
         <h1>
           <b>Módulos</b>
         </h1>
@@ -32,7 +32,7 @@ function ListagemModulos() {
       </div>
       <div className="mt-5">
         {/* modulos */}
-        <div className="row mx-md-5 d-flex justify-content-start">
+        <div className="container-fluid row mx-md-5 mx-1 d-flex justify-content-center">
           {modulos.map((modulo) => (
             <ModuloCard key={modulo.id} modulo={modulo} setModulo={setModulo} />
           ))}
@@ -41,7 +41,7 @@ function ListagemModulos() {
       {
         // modulo escolhido
         moduloEscolhido && (
-          <div className="container-fluid m-5">
+          <div className="container-fluid m-md-5">
             <div className="row">
               <div className="col-md-12 mt-3">
                 <h1>

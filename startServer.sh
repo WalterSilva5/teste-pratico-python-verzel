@@ -1,0 +1,1 @@
+source ./projetoverzel/venv/bin/activate && python3 ./projetoverzel/manage.py runserver 0.0.0.0:80

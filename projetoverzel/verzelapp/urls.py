@@ -3,11 +3,12 @@ from django.urls import path
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from verzelapp.views import (
-    modulo_view, aula_view, usuario_view)
+    modulo_view, aula_view, usuario_view, front_view)
 from rest_framework_simplejwt import views as jwt_views
 
-
 urlpatterns = [
+    #index
+    # path('', front_view.index, name='index'),
     #swagger
     path('swagger-file/', SpectacularAPIView.as_view(), name='schema'),
     # redoc

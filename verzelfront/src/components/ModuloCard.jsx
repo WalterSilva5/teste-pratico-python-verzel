@@ -11,7 +11,7 @@ function ModuloCard(props) {
   const quantidadeAulas = props.modulo.aulas.length;
   return (
     <div
-      className={`col-10 col-md-4 col-xl-3 ${classes.modulo_card}`}
+      className={`col-10 col-md-4 col-xl-3 my-2 ${classes.modulo_card}`}
       onClick={() => props.setModulo(props.modulo)}
     >
       <div className="mb-4 m-3 text-light">

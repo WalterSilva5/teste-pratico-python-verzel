@@ -13,83 +13,80 @@ function Header() {
   const [modalVisivel, setModalVisivel] = React.useState(false);
   const [modalCadastroShow, setModalCadastroVisivel] = React.useState(false);
   const authToken = localStorage.getItem('authToken');
-
+  const [showMenuMobile, setShowMenuMobile] = React.useState(false);
   return (
-    <nav className="navbar navbar-expand bg-dark text-white container-fluid">
-      <h3 className="navbar-brand px-3">
-        <b>Teste Verzel</b>
-      </h3>
-      <button
-        type="button"
-        className="navbar-toggler"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div
-        className="collapse navbar-collapse"
-        id="navbarNav"
-      >
-        <div className="container-fluid d-flex justify-content-between">
-          <ul className="navbar-nav">
-            <li>
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-black bg-black text-white">
+        <div className="container-fluid">
+          <span className="navbar-brand" href="#">
+            {' '}
+            <b>Verzel Teste Prático</b>
+            {' '}
+          </span>
+          <button
+            className="btn btn-white bg-warning text-black d-block d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar_header"
+            aria-controls="navbar_header"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            onClick={() => setShowMenuMobile(!showMenuMobile)}
+          >
+            <span className="navbar-toggler-icon">|||</span>
+          </button>
+          <div
+            className={`collapse navbar-collapse ${
+              showMenuMobile ? 'show' : ''
+            }`}
+            id="navbar_header"
+          >
+            <div
+              className="navbar-nav"
+            >
               <NavLink
                 to="/"
                 exact="true"
-                className="btn btn-outline-warning mx-2"
+                className="btn btn-outline-warning mx-2 my-2 my-md-0"
               >
                 Módulos
               </NavLink>
-            </li>
-            <li>
-              {
-                authToken !== null
-                  ? (
-                    <NavLink
-                      exact="true"
-                      to="/cadastros"
-                      className="btn btn-outline-warning mx-2"
-                    >
-                      Cadastros
-                    </NavLink>
-                  )
-                  : null
-              }
-            </li>
-          </ul>
+              {authToken !== null ? (
+                <NavLink
+                  exact="true"
+                  to="/cadastros"
+                  className="btn btn-outline-warning mx-2 my-2 my-md-0"
+                >
+                  Cadastros
+                </NavLink>
+              ) : null}
+              {authToken === null ? (
+                <button
+                  type="button"
+                  className="btn btn-outline-info float-right mx-2 my-2 my-md-0"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  onClick={() => setModalVisivel(true)}
+                >
+                  Entrar
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-outline-danger float-right mx-2 my-2 my-md-0"
+                  onClick={() => {
+                    localStorage.removeItem('authToken');
+                    window.location.href = '/';
+                  }}
+                >
+                  sair
+                </button>
+              )}
+
+            </div>
+          </div>
         </div>
-        {
-          authToken === null
-            ? (
-              <button
-                type="button"
-                className="btn btn-outline-info float-right mx-3"
-                data-toggle="modal"
-                data-target="#exampleModal"
-                onClick={() => setModalVisivel(true)}
-              >
-                Entrar
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="btn btn-outline-danger float-right mx-3"
-                onClick={() => {
-                  localStorage.removeItem('authToken');
-                  window.location.href = '/';
-                }}
-              >
-                sair
-
-              </button>
-            )
-        }
-      </div>
-
+      </nav>
       <ModalLogin
         modalLoginVisivel={modalVisivel}
         setModalLoginVisivel={setModalVisivel}
@@ -100,8 +97,7 @@ function Header() {
         setModalCadastroVisivel={setModalCadastroVisivel}
         setModalLoginVisivel={setModalVisivel}
       />
-
-    </nav>
+    </div>
   );
 }
 

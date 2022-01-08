@@ -28,7 +28,7 @@ function ModalLogin(props) {
   function handleSubmit(event) {
     event.preventDefault();
     axios
-      .post('http://localhost:8000/api/login/', {
+      .post('/api/login/', {
         username,
         password,
       })

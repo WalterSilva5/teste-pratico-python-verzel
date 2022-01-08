@@ -1,0 +1,13 @@
+.btn_shadow{
+    box-shadow: 2px 2px 5px black;
+    border: 1px solid black;
+    border-radius: 5px;
+    &:hover{
+        box-shadow: 2px 2px 2px black;
+    }
+    //img
+    &:hover img{
+        transform: scale(1.02);
+        box-shadow: 5px 5px 10px 1px rgba(19, 19, 19, 0.308);
+    }
+}
