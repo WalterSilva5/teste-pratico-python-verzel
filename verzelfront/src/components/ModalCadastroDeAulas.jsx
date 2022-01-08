@@ -33,7 +33,7 @@ function ModalCadastroDeAulas(props) {
   }
 
   React.useEffect(() => {
-    axios.get('/api/modulo/').then((response) => {
+    axios.get('http://localhost:8000/api/modulo/').then((response) => {
       setModulos(response.data);
     });
   }, []);
@@ -41,7 +41,7 @@ function ModalCadastroDeAulas(props) {
   React.useEffect(() => {
     if (props.aulaEditId !== null && props.aulaEditId !== undefined) {
       axios
-        .get(`/api/aula/${props.aulaEditId}`)
+        .get(`http://localhost:8000/api/aula/${props.aulaEditId}/`)
         .then((res) => {
           setNomeAula(res.data.nome);
           setDataAula(res.data.data);
@@ -62,7 +62,7 @@ function ModalCadastroDeAulas(props) {
     event.preventDefault();
 
     let requestMethod = '';
-    let requestUrl = '/api/';
+    let requestUrl = 'http://localhost:8000/api/';
 
     if (props.aulaEditId !== null && props.aulaEditId !== undefined) {
       requestMethod = 'put';

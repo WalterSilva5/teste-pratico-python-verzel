@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path, include
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from verzelapp.views import (
@@ -7,8 +7,6 @@ from verzelapp.views import (
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
-    #index
-    # path('', front_view.index, name='index'),
     #swagger
     path('swagger-file/', SpectacularAPIView.as_view(), name='schema'),
     # redoc
@@ -28,4 +26,6 @@ urlpatterns = [
     #login
     path('api/login/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/login/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    #index
+    re_path(r'', front_view.index, name='index'),
 ]

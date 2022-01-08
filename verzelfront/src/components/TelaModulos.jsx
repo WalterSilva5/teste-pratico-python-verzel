@@ -10,7 +10,6 @@ import React from 'react';
 import ModalCadastroDeModulos from '@/components/ModalCadastroDeModulos';
 import TabelaDeModulos from './TabelaModulos';
 import classes from './TelaModulos.module.scss';
-import add_icon from '@/assets/add_icon.png';
 
 function TelaModulos() {
   const [
@@ -31,14 +30,7 @@ function TelaModulos() {
 
           </b>
           {' '}
-          <span className={classes.btn_icon}>
-            <img
-              src={add_icon}
-              alt="add_icon"
-              className="img-fluid col-2 rounded-circle mx-2"
-            />
-
-          </span>
+          <span className={classes.btn_icon} />
 
         </div>
       </button>

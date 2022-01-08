@@ -28,18 +28,16 @@ function ModalLogin(props) {
   function handleSubmit(event) {
     event.preventDefault();
     axios
-      .post('/api/login/', {
+      .post('http://localhost:8000/api/login/', {
         username,
         password,
       })
       .then((response) => {
-        console.log(response);
         localStorage.setItem('authToken', response.data.access);
         axios.defaults.headers.common.Authorization = `Bearer ${response.data.access}`;
         window.location.href = '/cadastros';
       })
       .catch((error) => {
-        console.log(error.response);
         try {
           if ('username' in error.response.data) {
             setAlert(

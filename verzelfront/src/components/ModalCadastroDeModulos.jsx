@@ -31,7 +31,7 @@ function ModalCadastroDeModulos(props) {
   React.useEffect(() => {
     if (props.moduloEditId !== null && props.moduloEditId !== undefined) {
       axios
-        .get(`/api/modulo/${props.moduloEditId}`)
+        .get(`http://localhost:8000/api/modulo/${props.moduloEditId}/`)
         .then((res) => {
           setNomeModulo(res.data.nome);
         })
@@ -49,7 +49,7 @@ function ModalCadastroDeModulos(props) {
     event.preventDefault();
 
     let requestMethod = '';
-    let requestUrl = '/api/';
+    let requestUrl = 'http://localhost:8000/api/';
 
     if (props.moduloEditId !== null && props.moduloEditId !== undefined) {
       requestMethod = 'put';

@@ -28,7 +28,7 @@ function ModalCadastro(props) {
   function handleSubmit(event) {
     event.preventDefault();
     axios
-      .post('/api/usuario/', {
+      .post('http://localhost:8000/api/usuario/', {
         username,
         password,
       })

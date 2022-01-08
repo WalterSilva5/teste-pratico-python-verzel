@@ -18,13 +18,13 @@ function TabelaDeAulas() {
   const [confirmDel, setConfirmDel] = React.useState(false);
   const [aulaEditId, setAulaEditId] = React.useState(null);
   React.useEffect(() => {
-    axios.get('/api/aula/').then((response) => {
+    axios.get('http://localhost:8000/api/aula/').then((response) => {
       setAulas(response.data);
     });
   }, []);
 
   React.useEffect(() => {
-    axios.get('/api/modulo/').then((response) => {
+    axios.get('http://localhost:8000/api/modulo/').then((response) => {
       setModulos(response.data);
     });
   }, []);
@@ -32,7 +32,7 @@ function TabelaDeAulas() {
   React.useEffect(() => {
     if (confirmDel === true && idAulaDelete !== null) {
       axios
-        .delete(`/api/aula/${idAulaDelete}`)
+        .delete(`http://localhost:8000/api/aula/${idAulaDelete}`)
         .then(() => {
           setAulas(aulas.filter((aula) => aula.id !== idAulaDelete));
           setIdAulaDelete(null);
@@ -74,7 +74,6 @@ function TabelaDeAulas() {
                   <tr key={aula.id}>
                     <th scope="row">{aula.id}</th>
                     <td>{aula.nome}</td>
-                    <td>{aula.data.replaceAll('-', '/')}</td>
                     <td>
 
                       {modulos.map((modulo) => (
@@ -85,6 +84,7 @@ function TabelaDeAulas() {
                         )
                       ))}
                     </td>
+                    <td>{aula.data.replaceAll('-', '/')}</td>
                     <td className="col-3">
                       <button
                         className="btn btn-outline-info"
