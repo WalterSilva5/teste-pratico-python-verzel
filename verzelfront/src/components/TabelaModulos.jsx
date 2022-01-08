@@ -17,7 +17,7 @@ function TabelaDeModulos() {
   const [confirmDel, setConfirmDel] = React.useState(false);
   const [moduloEditId, setModuloEditId] = React.useState(null);
   React.useEffect(() => {
-    axios.get('http://localhost:8000/api/modulo/').then((response) => {
+    axios.get('/api/modulo/').then((response) => {
       setModulos(response.data);
     });
   }, []);
@@ -25,7 +25,7 @@ function TabelaDeModulos() {
   React.useEffect(() => {
     if (confirmDel === true && idModuloDelete !== null) {
       axios
-        .delete(`http://localhost:8000/api/modulo/${idModuloDelete}`)
+        .delete(`/api/modulo/${idModuloDelete}`)
         .then(() => {
           setModulos(modulos.filter((modulo) => modulo.id !== idModuloDelete));
           setIdModuloDelete(null);

@@ -9,7 +9,7 @@ function ListagemModulos() {
   const [modulos, setModulos] = React.useState([]);
   const [moduloEscolhido, setModuloEscolhido] = React.useState(null);
   function buscarModulos() {
-    axios.get("http://localhost:8000/api/modulo/").then((response) => {
+    axios.get("/api/modulo/").then((response) => {
       setModulos(response.data);
     });
   }

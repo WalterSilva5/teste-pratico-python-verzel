@@ -18,13 +18,13 @@ function TabelaDeAulas() {
   const [confirmDel, setConfirmDel] = React.useState(false);
   const [aulaEditId, setAulaEditId] = React.useState(null);
   React.useEffect(() => {
-    axios.get('http://localhost:8000/api/aula/').then((response) => {
+    axios.get('/api/aula/').then((response) => {
       setAulas(response.data);
     });
   }, []);
 
   React.useEffect(() => {
-    axios.get('http://localhost:8000/api/modulo/').then((response) => {
+    axios.get('/api/modulo/').then((response) => {
       setModulos(response.data);
     });
   }, []);
@@ -32,7 +32,7 @@ function TabelaDeAulas() {
   React.useEffect(() => {
     if (confirmDel === true && idAulaDelete !== null) {
       axios
-        .delete(`http://localhost:8000/api/aula/${idAulaDelete}`)
+        .delete(`/api/aula/${idAulaDelete}`)
         .then(() => {
           setAulas(aulas.filter((aula) => aula.id !== idAulaDelete));
           setIdAulaDelete(null);
