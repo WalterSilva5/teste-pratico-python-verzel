@@ -8,17 +8,28 @@ import classes from './AulaCard.module.scss';
 function ListagemModulos() {
   const [modulos, setModulos] = React.useState([]);
   const [moduloEscolhido, setModuloEscolhido] = React.useState(null);
+  const [modulosVazio, setModulosVazio] = React.useState(false);
   function buscarModulos() {
     axios.get("/api/modulo/").then((response) => {
       setModulos(response.data);
+      if (response.data.length === 0) {
+        setModulosVazio(true);
+      } else {
+        setModuloEscolhido(response.data[0]);
+      }
     });
   }
-  if (modulos.length === 0) {
+  if (modulos.length === 0 && !modulosVazio) {
     buscarModulos();
   }
 
   function setModulo(modulo) {
     setModuloEscolhido(modulo);
+  }
+
+  function formatData(data) {
+    const novaData = new Date(data);
+    return `${novaData.getDate()}/${novaData.getMonth() + 1}/${novaData.getFullYear()}`;
   }
 
   return (
@@ -64,7 +75,7 @@ function ListagemModulos() {
                   <div className="card ">
                     <div className="card-body">
                       <h4 className="card-title"><b>{aula.nome}</b></h4>
-                      <h5>{aula.data.replaceAll('-', '/')}</h5>
+                      <h5>{formatData(aula.data).replaceAll('-', '/')}</h5>
                       <a href={aula.video_url} target="__blank" className="btn btn-primary">
                         Acessar
                       </a>

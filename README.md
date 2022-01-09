@@ -31,7 +31,7 @@ Projeto feito com base na pagina: <https://devaria.com.br/conteudo-das-aulas>
 você pode obtê-lo no site: <https://www.python.org/downloads/release/python-399>
 
 Apos instalado o python, navegue para o diretorio do projeto 
-"projetoverzel
+"projetoverzel"
 pelo terminal e execute o comando para instalar as dependencias:
     
     python -m pip install -r requirements.txt
@@ -41,3 +41,6 @@ Feito isso, você pode executar o projeto com o comando:
     python manage.py runserver
 
 o sistema estará acessivel atravez da url: <http://localhost:8000/>
+
+## Documentação da API - SWAGGER:
+A documentação da API estará disponivel atravez da url: <http://localhost:8000/swagger/>

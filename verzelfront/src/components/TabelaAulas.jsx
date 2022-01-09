@@ -42,6 +42,11 @@ function TabelaDeAulas() {
     }
   }, [confirmDel, idAulaDelete]);
 
+  function formatData(data) {
+    const novaData = new Date(data);
+    return `${novaData.getDate()}/${novaData.getMonth() + 1}/${novaData.getFullYear()}`;
+  }
+
   return (
     <div className="row rounded px-md-2">
       <div className="col-12 bg-dark rounded">
@@ -84,7 +89,7 @@ function TabelaDeAulas() {
                         )
                       ))}
                     </td>
-                    <td>{aula.data.replaceAll('-', '/')}</td>
+                    <td>{formatData(aula.data).replaceAll('-', '/')}</td>
                     <td className="col-3">
                       <button
                         className="btn btn-outline-info"

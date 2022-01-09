@@ -15,6 +15,7 @@ function TelaAulas() {
     modalModalCadastroDeAulasVisivel,
     setModalModalCadastroDeAulasVisivel,
   ] = React.useState(false);
+
   return (
     <div>
       <button
